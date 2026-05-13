@@ -78,9 +78,10 @@
     <!-- Navegación: Inicialmente 100% transparente para no crear la franja en celular -->
     <nav class="fixed w-full z-50 bg-transparent transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
+            <!-- h-16 en móvil para que suba, md:h-20 en escritorio para que quede igual -->
+            <div class="flex justify-between items-center h-16 md:h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
-                    <span class="font-title font-black text-xl tracking-tight">PIXEL <span class="text-cyanstudio font-normal tracking-[0.2em] text-sm">STUDIO</span></span>
+                    <span class="font-title font-black text-xl tracking-tight">PIXEL <span class="text-cyanstudio font-normal tracking-[0.2em] text-xs md:text-sm">STUDIO</span></span>
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#servicios" class="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wider">Servicios</a>
@@ -122,8 +123,7 @@
         <!-- Contenedor general -->
         <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- CAJA DE CONTENIDO: Aquí apliqué el "translate" para subirlo y moverlo a la izquierda -->
-            <!-- pt-16 es para que en celular no se pegue arriba, -translate-y-20 y -translate-x-16 lo mueven en PC -->
+            <!-- CAJA DE CONTENIDO: Alineada con translaciones en desktop -->
             <div class="max-w-3xl text-center md:text-left pt-16 md:pt-0 md:-translate-y-20 lg:-translate-y-24 lg:-translate-x-16 xl:-translate-x-24">
                 
                 <!-- EL SUPER LOGO -->
@@ -217,34 +217,37 @@
         <div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyanstudio rounded-full mix-blend-multiply filter blur-[150px] opacity-20"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="glass-card rounded-3xl p-8 md:p-16 border border-gray-700">
+            <!-- p-5 en móvil para dar espacio al texto, md:p-16 en desktop para mantener el diseño original -->
+            <div class="glass-card rounded-3xl p-5 sm:p-8 md:p-16 border border-gray-700">
                 <div class="flex flex-col lg:flex-row items-center gap-12">
                     
-                    <div class="lg:w-1/2">
+                    <div class="lg:w-1/2 w-full">
                         <span class="inline-block py-1 px-3 rounded-full bg-magenta/20 text-magenta text-sm font-bold tracking-wide uppercase mb-6 border border-magenta/50">Producto Estrella</span>
-                        <h2 class="font-title font-black text-4xl md:text-5xl uppercase mb-6 leading-tight">El Ecosistema <br><span class="text-transparent bg-clip-text bg-gradient-pixel">Pixel Premium</span></h2>
-                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">No solo te entregamos un video espectacular; te entregamos una <strong>herramienta de ventas completa</strong>. Una solución "llave en mano" diseñada para generar ROI.</p>
+                        <!-- Texto un poco más pequeño en móvil para que no se desborde -->
+                        <h2 class="font-title font-black text-3xl sm:text-4xl md:text-5xl uppercase mb-6 leading-tight">El Ecosistema <br><span class="text-transparent bg-clip-text bg-gradient-pixel">Pixel Premium</span></h2>
+                        <p class="text-gray-300 text-base md:text-lg mb-8 leading-relaxed">No solo te entregamos un video espectacular; te entregamos una <strong>herramienta de ventas completa</strong>. Una solución "llave en mano" diseñada para generar ROI.</p>
                         
                         <div class="space-y-6 mb-10">
                             <div class="flex items-start gap-4">
                                 <div class="bg-bluefpv/20 p-3 rounded-lg"><i data-lucide="video" class="text-bluefpv w-6 h-6"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-white text-lg">Video Promocional (45 seg)</h4>
+                                    <h4 class="font-bold text-white text-base md:text-lg">Video Promocional (45 seg)</h4>
                                     <p class="text-sm text-gray-400">Grabación híbrida: Drones FPV de alta velocidad + Cámara 360 + Tomas de tierra estabilizadas. Edición y colorización premium.</p>
                                 </div>
                             </div>
                             <div class="flex items-start gap-4">
                                 <div class="bg-cyanstudio/20 p-3 rounded-lg"><i data-lucide="layout-template" class="text-cyanstudio w-6 h-6"></i></div>
                                 <div>
-                                    <h4 class="font-bold text-white text-lg">Landing Page Estratégica</h4>
+                                    <h4 class="font-bold text-white text-base md:text-lg">Landing Page Estratégica</h4>
                                     <p class="text-sm text-gray-400">Diseño web de una sola página, optimizada para conversiones (clientes potenciales/reservas), vinculando tu video de forma inmersiva.</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="flex items-center gap-6">
-                            <div class="font-title font-black text-5xl text-white">$1,900 <span class="text-xl text-gray-500 font-normal">USD</span></div>
-                            <a href="https://wa.me/522286038625?text=Hola%20Pixel%20Studio!%20Vengo%20de%20su%20sitio%20web%20y%20me%20interesa%20agendar%20el%20ecosistema%20Pixel%20Premium%20de%20%241900." target="_blank" rel="noopener noreferrer" class="btn-premium px-8 py-4 rounded-full font-bold text-sm md:text-base uppercase tracking-wide">Agendar Proyecto</a>
+                        <!-- En móvil se pone uno sobre otro (flex-col), en desktop lado a lado (sm:flex-row) -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                            <div class="font-title font-black text-4xl md:text-5xl text-white">$1,900 <span class="text-lg md:text-xl text-gray-500 font-normal">USD</span></div>
+                            <a href="https://wa.me/522286038625?text=Hola%20Pixel%20Studio!%20Vengo%20de%20su%20sitio%20web%20y%20me%20interesa%20agendar%20el%20ecosistema%20Pixel%20Premium%20de%20%241900." target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto text-center btn-premium px-8 py-4 rounded-full font-bold text-sm md:text-base uppercase tracking-wide">Agendar Proyecto</a>
                         </div>
                     </div>
 
