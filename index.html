@@ -75,8 +75,8 @@
 </head>
 <body class="antialiased selection:bg-magenta selection:text-white">
 
-    <!-- Navegación -->
-    <nav class="fixed w-full z-50 glass-card transition-all duration-300" id="navbar">
+    <!-- Navegación: Inicialmente 100% transparente para no crear la franja en celular -->
+    <nav class="fixed w-full z-50 bg-transparent transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3">
@@ -109,11 +109,10 @@
         </div>
     </nav>
 
-    <!-- Hero Section: Alineado a la izquierda para aprovechar las persianas -->
+    <!-- Hero Section -->
     <section class="relative h-screen flex items-center overflow-hidden">
         <!-- Video Background Fallback / Overlay -->
         <div class="absolute inset-0 z-0">
-            <!-- Reduje un poco la opacidad para que tu foto se vea más viva -->
             <div class="absolute inset-0 bg-midnight bg-opacity-70 z-10"></div>
             <!-- Imagen fallback para el video de fondo -->
             <img src="hero-bg.jpg" alt="Fondo Pixel Studio" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1579820010410-c10411aaaa88?q=80&w=2097&auto=format&fit=crop'">
@@ -122,15 +121,16 @@
             </video>
         </div>
 
-        <!-- Contenedor pegado al extremo izquierdo -->
-        <div class="relative z-20 w-full flex items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 mt-16">
-            <!-- Caja de contenido alineada a la izquierda -->
-            <div class="w-full max-w-3xl text-center md:text-left">
+        <!-- Contenedor general -->
+        <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- CAJA DE CONTENIDO: Aquí apliqué el "translate" para subirlo y moverlo a la izquierda -->
+            <!-- pt-16 es para que en celular no se pegue arriba, -translate-y-20 y -translate-x-16 lo mueven en PC -->
+            <div class="max-w-3xl text-center md:text-left pt-16 md:pt-0 md:-translate-y-20 lg:-translate-y-24 lg:-translate-x-16 xl:-translate-x-24">
                 
-                <!-- EL SUPER LOGO GIGANTE -->
+                <!-- EL SUPER LOGO -->
                 <div class="flex justify-center md:justify-start mb-8 md:mb-10">
-                    <!-- Altura aumentada drásticamente: hasta 320px en pantallas grandes -->
-                    <img src="logo.png" alt="Pixel Studio Super Logo" class="h-36 md:h-[260px] lg:h-[320px] w-auto block super-logo" onerror="this.src='https://placehold.co/300x300/18202A/FFF?text=LOGO+GRANDE'">
+                    <img src="logo.png" alt="Pixel Studio Super Logo" class="h-28 md:h-[180px] w-auto block super-logo" onerror="this.src='https://placehold.co/300x300/18202A/FFF?text=LOGO+GRANDE'">
                 </div>
 
                 <span class="text-cyanstudio font-bold tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">Vuelo • Adrenalina • Conversión</span>
@@ -140,7 +140,7 @@
                     <span class="text-transparent bg-clip-text bg-gradient-pixel">Impacto Visual</span>
                 </h1>
                 
-                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-xl mx-auto md:mx-0 font-light">
+                <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-xl mx-auto md:mx-0 font-light drop-shadow-md">
                     Combinamos cámaras 360, drones FPV y diseño web estratégico para crear experiencias inmersivas que <strong class="text-white font-semibold">venden y emocionan.</strong>
                 </p>
                 
@@ -348,15 +348,17 @@
             menu.classList.toggle('hidden');
         });
 
-        // Cambiar estilo de navbar al hacer scroll
+        // Cambiar estilo de navbar al hacer scroll (Añade fondo oscuro SOLO al bajar)
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                nav.classList.add('bg-midnight/90', 'border-b', 'border-gray-800');
-                nav.classList.remove('glass-card');
+                // Al scrollear hacia abajo: pone fondo oscuro y blur
+                nav.classList.add('bg-midnight/95', 'backdrop-blur-md', 'border-b', 'border-gray-800');
+                nav.classList.remove('bg-transparent');
             } else {
-                nav.classList.remove('bg-midnight/90', 'border-b', 'border-gray-800');
-                nav.classList.add('glass-card');
+                // Hasta arriba: 100% transparente
+                nav.classList.remove('bg-midnight/95', 'backdrop-blur-md', 'border-b', 'border-gray-800');
+                nav.classList.add('bg-transparent');
             }
         });
     </script>
