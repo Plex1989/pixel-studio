@@ -122,14 +122,15 @@
             </video>
         </div>
 
-        <!-- Contenedor alineado -->
-        <div class="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
-            <!-- Caja de contenido limitada a la mitad izquierda de la pantalla en Desktop -->
-            <div class="max-w-3xl text-center md:text-left">
+        <!-- Contenedor pegado al extremo izquierdo -->
+        <div class="relative z-20 w-full flex items-center px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24 mt-16">
+            <!-- Caja de contenido alineada a la izquierda -->
+            <div class="w-full max-w-3xl text-center md:text-left">
                 
-                <!-- EL SUPER LOGO -->
+                <!-- EL SUPER LOGO GIGANTE -->
                 <div class="flex justify-center md:justify-start mb-8 md:mb-10">
-                    <img src="logo.png" alt="Pixel Studio Super Logo" class="h-28 md:h-[180px] w-auto block super-logo" onerror="this.src='https://placehold.co/300x300/18202A/FFF?text=LOGO+GRANDE'">
+                    <!-- Altura aumentada drásticamente: hasta 320px en pantallas grandes -->
+                    <img src="logo.png" alt="Pixel Studio Super Logo" class="h-36 md:h-[260px] lg:h-[320px] w-auto block super-logo" onerror="this.src='https://placehold.co/300x300/18202A/FFF?text=LOGO+GRANDE'">
                 </div>
 
                 <span class="text-cyanstudio font-bold tracking-[0.2em] uppercase text-sm md:text-base mb-4 block">Vuelo • Adrenalina • Conversión</span>
